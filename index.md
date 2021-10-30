@@ -1,37 +1,40 @@
-## Welcome to GitHub Pages
+## NASM Tutorial on macos
 
-You can use the [editor on GitHub](https://github.com/lordbaduk/lordbaduk.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+This page contains several notes on learning assembly programming with NASM.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+macos / LLDB Cheat Sheet
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+* show all strings
+  $ strings <binary>
 
-```markdown
-Syntax highlighted code block
+* show symbol tables
+  $ nm <binary>
+  or
+  (lldb) image dump symtab <binary>
 
-# Header 1
-## Header 2
-### Header 3
+## Tutorials and Documentation
+  
+## Using NASM on macos
+  
+The following applies to Big Sur / macos 11.4, possibly also to earlier and/or later versions.
 
-- Bulleted
-- List
+### Linking
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+When calling the linker (`ld`) outside Xcode, the system libraries are not in the library path:
+  
+```
+$ ld hello_world.o
+ld: dynamic main executables must link with libSystem.dylib for architecture x86_64
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Copies of the system libraries are no longer present on the file system but stored in a cache:
+[https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_0_1-release-notes]
 
-### Jekyll Themes
+Depending on the specific SDK you are working with, the necessary directory must be given to ld explicitly:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lordbaduk/lordbaduk.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+$ ld -L /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib hello_world.o
+```
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Also note that due to the "System Integrity Protection (SIP)" feature of macos, the LD_LIBRARY_PATH environment variable cannot be changed, so the library path must be given to ld via command line. Alternatively, the SIP feature must be disabled.
