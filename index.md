@@ -6,12 +6,18 @@ This page contains several notes on learning assembly programming with NASM.
 macos / LLDB Cheat Sheet
 
 * show all strings
-  $ strings <binary>
+```
+$ strings <binary>
+```
 
 * show symbol tables
-  $ nm <binary>
-  or
-  (lldb) image dump symtab <binary>
+```
+$ nm <binary>
+```
+or
+```
+(lldb) image dump symtab <binary>
+```
 
 ## Tutorials and Documentation
   
@@ -38,3 +44,7 @@ $ ld -L /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Dev
 ```
 
 Also note that due to the "System Integrity Protection (SIP)" feature of macos, the LD_LIBRARY_PATH environment variable cannot be changed, so the library path must be given to ld via command line. Alternatively, the SIP feature must be disabled.
+
+## Link Collection
+
+* (NASM Tutorial)[https://cs.lmu.edu/~ray/notes/nasmtutorial/]
