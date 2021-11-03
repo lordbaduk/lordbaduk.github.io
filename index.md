@@ -1,29 +1,8 @@
-## NASM Tutorial on macos
+# NASM on macos
 
-This page contains several notes on learning assembly programming with NASM.
+This page collects various information on assembly programming on macos, essentially my learning notes.
 
-
-macos / LLDB Cheat Sheet
-
-* show all strings
-```
-$ strings <binary>
-```
-
-* show symbol tables
-```
-$ nm <binary>
-```
-or
-```
-(lldb) image dump symtab <binary>
-```
-
-## Tutorials and Documentation
-  
-## Using NASM on macos
-  
-The following applies to Big Sur / macos 11.4, possibly also to earlier and/or later versions.
+## Tips
 
 ### Linking
 
@@ -45,6 +24,39 @@ $ ld -L /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Dev
 
 Also note that due to the "System Integrity Protection (SIP)" feature of macos, the LD_LIBRARY_PATH environment variable cannot be changed, so the library path must be given to ld via command line. Alternatively, the SIP feature must be disabled.
 
-## Link Collection
+## Documentation
+
+* [syscall list](https://github.com/opensource-apple/xnu/blob/master/bsd/kern/syscalls.master)
+* [syscall classes](http://dustin.schultz.io/mac-os-x-64-bit-assembly-system-calls.html)
+* [syscall register usage](https://courses.cs.washington.edu/courses/cse378/10au/sections/Section1_recap.pdf)
+
+## ASMTutor programs on macos
+
+see (https://asmtutor.com/)
+
+## Other sample programs
+
+
+## Useful links
 
 * (NASM Tutorial)[https://cs.lmu.edu/~ray/notes/nasmtutorial/]
+
+
+# Software Reverse Engineering on macos
+
+
+## LLDB cheat sheet
+
+* show all strings
+```
+$ strings <binary>
+```
+
+* show symbol tables
+```
+$ nm <binary>
+```
+or
+```
+(lldb) image dump symtab <binary>
+```
