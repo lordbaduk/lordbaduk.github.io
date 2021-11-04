@@ -1,6 +1,22 @@
 # NASM on macos
 
-This page collects various information on assembly programming on macos, essentially my learning notes.
+This page collects various information on assembly programming on macos.
+
+## Documentation
+
+* [syscall list](https://github.com/opensource-apple/xnu/blob/master/bsd/kern/syscalls.master)
+* [syscall classes](http://dustin.schultz.io/mac-os-x-64-bit-assembly-system-calls.html)
+* [syscall register usage](https://courses.cs.washington.edu/courses/cse378/10au/sections/Section1_recap.pdf)
+
+## ASMTutor programs on macos
+
+see (https://asmtutor.com/)
+
+## Other sample programs
+
+## Useful links
+
+* (NASM Tutorial)[https://cs.lmu.edu/~ray/notes/nasmtutorial/]
 
 ## Tips
 
@@ -23,23 +39,6 @@ $ ld -L /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Dev
 ```
 
 Also note that due to the "System Integrity Protection (SIP)" feature of macos, the LD_LIBRARY_PATH environment variable cannot be changed, so the library path must be given to ld via command line. Alternatively, the SIP feature must be disabled.
-
-## Documentation
-
-* [syscall list](https://github.com/opensource-apple/xnu/blob/master/bsd/kern/syscalls.master)
-* [syscall classes](http://dustin.schultz.io/mac-os-x-64-bit-assembly-system-calls.html)
-* [syscall register usage](https://courses.cs.washington.edu/courses/cse378/10au/sections/Section1_recap.pdf)
-
-## ASMTutor programs on macos
-
-see (https://asmtutor.com/)
-
-## Other sample programs
-
-
-## Useful links
-
-* (NASM Tutorial)[https://cs.lmu.edu/~ray/notes/nasmtutorial/]
 
 
 # Software Reverse Engineering on macos
