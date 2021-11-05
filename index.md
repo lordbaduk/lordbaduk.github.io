@@ -17,7 +17,7 @@ Get the current XNU kernel sources from here: [https://opensource.apple.com](htt
 
 Find the list of system calls and their ID in the kernel source code, in file `bsd/kern/syscalls.master`.
 
-Register usage is determined by the [x86-64 System V ABI](https://gitlab.com/x86-psABIs/x86-64-ABI) (see 3.2.3 Parameter Passing, Figure 3.4 Register Usage).
+Register usage is determined by the [x86-64 System V ABI](https://gitlab.com/x86-psABIs/x86-64-ABI) (see 3.2.3 Parameter Passing, Figure 3.4 Register Usage). Note that 32bit uses a different convention.
 
 For documentation on individual system calls, check out section 2 of the manual pages, e.g.:
 
