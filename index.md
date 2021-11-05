@@ -2,7 +2,7 @@ This page collects various notes and links on x86-64 assembly programming on mac
 
 - [NASM on macos](#nasm-on-macos)
   - [System Calls](#system-calls)
-  - [Dynamic Linking](#dynamic-linking)
+  - [Linking](#linking)
 - [Useful Links](#useful-links)
   - [Tutorials](#tutorials)
   - [macos specific information](#macos-specific-information)
@@ -24,10 +24,12 @@ https://gitlab.com/x86-psABIs/x86-64-ABI
 
 For documentation on individual system calls, check out section 2 of the manual pages, e.g.:
 
-```$ man 2 write```
+```
+$ man 2 write
+```
 
 
-## Dynamic Linking
+## Linking
 
 When calling the linker (`ld`) outside Xcode, the system libraries are not in the library path:
   
