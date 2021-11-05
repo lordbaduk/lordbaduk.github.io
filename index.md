@@ -16,14 +16,14 @@ This page collects various notes and links on x86-64 assembly programming on mac
 Get the current XNU kernel sources from here:
 (https://opensource.apple.com)
 
-Find the list of system calls and their ID in the kernel source code, in file:
-*bsd/kern/syscalls.master*
+Find the list of system calls and their ID in the kernel source code, in file `bsd/kern/syscalls.master`.
 
 Register usage is determined by the x86-64 System V ABI:
 https://gitlab.com/x86-psABIs/x86-64-ABI
 (see 3.2.3 Parameter Passing, Figure 3.4 Register Usage)
 
-For documentation on individual system calls, check out segment 2 of the manual pages, e.g.:
+For documentation on individual system calls, check out section 2 of the manual pages, e.g.:
+
 ```$ man 2 write```
 
 
