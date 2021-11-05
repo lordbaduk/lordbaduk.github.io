@@ -14,7 +14,7 @@ This page collects various notes and links on x86-64 assembly programming on mac
 ## System Calls
 
 Get the current XNU kernel sources from here:
-https://opensource.apple.com
+(https://opensource.apple.com)
 
 Find the list of system calls and their ID in the kernel source code, in file:
 *bsd/kern/syscalls.master*
