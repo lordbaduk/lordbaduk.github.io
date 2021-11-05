@@ -4,6 +4,7 @@
   - [System Calls](#system-calls)
   - [Linking](#linking)
 - [Useful Links](#useful-links)
+  - [Link Collections](#link-collections)
   - [Tutorials](#tutorials)
   - [macos specific information](#macos-specific-information)
 
@@ -50,6 +51,10 @@ Also note that due to the "System Integrity Protection (SIP)" feature of macos, 
 
 
 # Useful Links
+
+## Link Collections
+
+* [osx-re-101](https://github.com/michalmalik/osx-re-101)
 
 ## Tutorials
 
