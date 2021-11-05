@@ -38,8 +38,7 @@ $ ld -lSystem 01_hello_world.o
 ld: library not found for -lSystem
 ```
 
-Copies of the system libraries are no longer present on the file system but stored in a cache:
-https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_0_1-release-notes
+Copies of the system libraries are no longer present on the file system but stored in a cache; see [Big Sur Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_0_1-release-notes).
 
 Depending on the specific SDK you are working with, the necessary directory must be given to ld explicitly:
 
