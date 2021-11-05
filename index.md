@@ -24,7 +24,7 @@ https://gitlab.com/x86-psABIs/x86-64-ABI
 (see 3.2.3 Parameter Passing, Figure 3.4 Register Usage)
 
 For documentation on individual system calls, check out segment 2 of the manual pages, e.g.:
-`$ man 2 write`
+```$ man 2 write```
 
 
 ## Dynamic Linking
@@ -40,7 +40,7 @@ ld: library not found for -lSystem
 ```
 
 Copies of the system libraries are no longer present on the file system but stored in a cache:
-[https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_0_1-release-notes]
+https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_0_1-release-notes
 
 Depending on the specific SDK you are working with, the necessary directory must be given to ld explicitly:
 
