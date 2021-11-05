@@ -36,7 +36,7 @@ $ nasm -f macho64 01_hello_world.asm
 $ ld 01_hello_world.o
 ld: dynamic main executables must link with libSystem.dylib for architecture x86_64
 $ ld -lSystem 01_hello_world.o
-
+ld: library not found for -lSystem
 ```
 
 Copies of the system libraries are no longer present on the file system but stored in a cache:
