@@ -1,32 +1,42 @@
+This page collects various notes and links on x86-64 assembly programming on macos.
+
+- [NASM on macos](#nasm-on-macos)
+  - [System Calls](#system-calls)
+  - [Dynamic Linking](#dynamic-linking)
+- [Useful Links](#useful-links)
+  - [Tutorials](#tutorials)
+  - [macos specific information](#macos-specific-information)
+
+
 # NASM on macos
 
-This page collects various information on assembly programming on macos.
 
-## Documentation
+## System Calls
 
-* [syscall list](https://github.com/opensource-apple/xnu/blob/master/bsd/kern/syscalls.master)
-* [syscall classes](http://dustin.schultz.io/mac-os-x-64-bit-assembly-system-calls.html)
-* [syscall register usage](https://courses.cs.washington.edu/courses/cse378/10au/sections/Section1_recap.pdf)
+Get the current XNU kernel sources from here:
+[https://opensource.apple.com]
 
-## ASMTutor programs on macos
+Find the list of system calls and their ID in the kernel source code, in file:
+*bsd/kern/syscalls.master*
 
-see (https://asmtutor.com/)
+Register usage is determined by the x86-64 System V ABI:
+[https://gitlab.com/x86-psABIs/x86-64-ABI]
+(see 3.2.3 Parameter Passing, Figure 3.4 Register Usage)
 
-## Other sample programs
+For documentation on individual system calls, check out segment 2 of the manual pages, e.g.:
+`$ man 2 write`
 
-## Useful links
 
-* (NASM Tutorial)[https://cs.lmu.edu/~ray/notes/nasmtutorial/]
-
-## Tips
-
-### Linking
+## Dynamic Linking
 
 When calling the linker (`ld`) outside Xcode, the system libraries are not in the library path:
   
 ```
-$ ld hello_world.o
+$ nasm -f macho64 01_hello_world.asm
+$ ld 01_hello_world.o
 ld: dynamic main executables must link with libSystem.dylib for architecture x86_64
+$ ld -lSystem 01_hello_world.o
+
 ```
 
 Copies of the system libraries are no longer present on the file system but stored in a cache:
@@ -35,27 +45,21 @@ Copies of the system libraries are no longer present on the file system but stor
 Depending on the specific SDK you are working with, the necessary directory must be given to ld explicitly:
 
 ```
-$ ld -L /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib hello_world.o
+$ ld -L /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib -lSystem 01_hello_world.o
 ```
 
 Also note that due to the "System Integrity Protection (SIP)" feature of macos, the LD_LIBRARY_PATH environment variable cannot be changed, so the library path must be given to ld via command line. Alternatively, the SIP feature must be disabled.
 
 
-# Software Reverse Engineering on macos
+# Useful Links
 
+## Tutorials
 
-## LLDB cheat sheet
+* [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial)
+* [ASM Tutor](https://asmtutor.com)
+  see also the macos adapted code at [Learning NASM](https://github.com/lordbaduk/learning-nasm)
 
-* show all strings
-```
-$ strings <binary>
-```
+## macos specific information
 
-* show symbol tables
-```
-$ nm <binary>
-```
-or
-```
-(lldb) image dump symtab <binary>
-```
+* [Writing 64 Bit Assembly on Mac OS X](http://www.idryman.org/blog/2014/12/02/writing-64-bit-assembly-on-mac-os-x)
+* [System Call  Path](https://gist.github.com/yrp604/23e86dce9ca12bf514ef)
