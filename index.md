@@ -1,4 +1,4 @@
-This page collects various notes and links on x86-64 assembly programming on macos.
+**Table of Contents**
 
 - [NASM on macos](#nasm-on-macos)
   - [System Calls](#system-calls)
