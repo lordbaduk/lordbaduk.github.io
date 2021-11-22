@@ -1,6 +1,7 @@
 **Table of Contents**
 
 - [NASM on macos](#nasm-on-macos)
+  - [x86-64 Documentation](#x86-64-documentation)
   - [System Calls](#system-calls)
   - [Linking](#linking)
 - [Useful Links](#useful-links)
@@ -10,6 +11,11 @@
 
 
 # NASM on macos
+
+## x86-64 Documentation
+
+x86-64 architecture documentation can be found here:
+[Intel 64 and IA-32 Architectures Software Developer’s Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html)
 
 
 ## System Calls
@@ -65,4 +71,4 @@ Also note that due to the "System Integrity Protection (SIP)" feature of macos, 
 ## macos specific information
 
 * [Writing 64 Bit Assembly on Mac OS X](http://www.idryman.org/blog/2014/12/02/writing-64-bit-assembly-on-mac-os-x)
-* [System Call  Path](https://gist.github.com/yrp604/23e86dce9ca12bf514ef)
+* [System Call Path](https://gist.github.com/yrp604/23e86dce9ca12bf514ef)
